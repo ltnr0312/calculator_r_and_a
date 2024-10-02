@@ -59,6 +59,11 @@ def main():
     # Alterar a cor dos valores do eixo Y secundário para cinza
     ax2.tick_params(axis='y', colors='#585858')
 
+    # Exibir valores de $/tr acima da linha
+    for i, val in enumerate(converted_values):
+        if val > 0:
+            ax2.text(i, val + 1, f'${val:.2f}/tr', ha='center', va='bottom', color='#585858')
+
     # Exibir o gráfico no Streamlit
     st.pyplot(fig)
 
